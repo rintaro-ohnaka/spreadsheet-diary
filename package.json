@@ -1,0 +1,23 @@
+{
+  "name": "spreadsheet-diary",
+  "version": "1.0.0",
+  "description": "- 日誌のシートを毎回追加するのめんどくさいので、毎日自動で追加するようにする - masterテスト",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rintaro-ohnaka/spreadsheet-diary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rintaro-ohnaka/spreadsheet-diary/issues"
+  },
+  "homepage": "https://github.com/rintaro-ohnaka/spreadsheet-diary#readme",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.41"
+  }
+}
