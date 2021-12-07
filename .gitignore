@@ -6,3 +6,6 @@ DS_Store
 
 # node modules
 node_modules
+
+# clasp
+.clasp.json
