@@ -4,22 +4,19 @@ function setActivateTrigger() {
     ScriptApp.newTrigger('main').timeBased().atHour(9).everyDays(1).create();
 }
 
-// 最新のシートをコピー
-function copySheet() {
-  let mySheet = SpreadsheetApp.getActiveSpreadsheet();
-  let copySheet = mySheet.getActiveSheet();
-  copySheet.copyTo(mySheet);
+// デフォルトのシートをコピー
+function copyDefaultSheet(mySheet, defaultSheetName) {
+    let defaultSheet = mySheet.getSheetByName(defaultSheetName);
+    defaultSheet.copyTo(mySheet);
 }
 
-// xxのコピーのコピーを削除する
-function changeSheetNameToCurrentDate() {
-    let mySheet = SpreadsheetApp.getActiveSpreadsheet();
+// コピーしたシート名を現在日時に変更する
+function changeSheetNameToCurrentDate(mySheet, defaultSheetName) {
     let date = new Date();
-
     let month = date.getMonth() + 1;
     let day = date.getDate();
-    let yesterday = date.getDate() - 1;
-    let targetSheetName = `${month}/${yesterday} のコピー`;
+
+    let targetSheetName = `${defaultSheetName} のコピー`;
 
     // コピーしたシート名を現在日時に変更する
     let dateString = `${month}/${day}`
@@ -38,6 +35,8 @@ function moveFirstSheet(mySheet, targetSheet) {
 
 // main
 function main() {
-    copySheet();
-    changeSheetNameToCurrentDate();
+    const defaultSheetName = "default";
+    const mySheet = SpreadsheetApp.getActiveSpreadsheet();
+    copyDefaultSheet(mySheet, defaultSheetName);
+    changeSheetNameToCurrentDate(mySheet, defaultSheetName);
 }
